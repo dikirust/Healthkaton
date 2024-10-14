@@ -14,18 +14,9 @@
 [![Seaborn](https://img.shields.io/badge/Seaborn-blue?style=for-the-badge&logo=seaborn.pydata&logoColor=white)](https://seaborn.pydata.org/)
 [![Kagle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/)
 
-## Algorithms
-
-[![Support Vector Machine](https://img.shields.io/badge/Support%20Vector%20Machine-ff69b4.svg?style=for-the-badge&logo=Support-Vector-Machines&logoColor=white)]()
-[![Logistic Regression](https://img.shields.io/badge/Logistic%20Regression-blueviolet.svg?style=for-the-badge&logo=Logistic-Regression&logoColor=white)]()
-
-## Link to Streamlit App
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://predict-diabetes-app.streamlit.app/)
-
 ## Introduction
 
-Prediksi Diabetes di deployment Streamlit dengan algoritma SVM adalah sebuah aplikasi yang dibuat untuk memprediksi kemungkinan seseorang mengalami diabetes berdasarkan beberapa faktor seperti usia, BMI, tekanan darah, kadar insulin, dan lain-lain. SVM (Support Vector Machine) adalah salah satu algoritma machine learning yang digunakan dalam aplikasi ini untuk membangun model prediksi berdasarkan data yang telah diolah sebelumnya. Aplikasi ini memudahkan pengguna untuk menginput data dan langsung mendapatkan hasil prediksi apakah ia berisiko terkena diabetes atau tidak. Dengan begitu, aplikasi ini dapat membantu dalam mencegah dan mengatasi penyakit diabetes dengan lebih efektif.
+Prediksi Diabetes di deployment Streamlit dengan algoritma Random Forest adalah sebuah aplikasi yang dibuat untuk memprediksi kemungkinan seseorang mengalami diabetes berdasarkan beberapa faktor seperti usia, BMI, tekanan darah, kadar insulin, dan lain-lain. Random Forest Tree adalah salah satu algoritma machine learning yang digunakan dalam aplikasi ini untuk membangun model prediksi berdasarkan data yang telah diolah sebelumnya. Aplikasi ini memudahkan pengguna untuk menginput data dan langsung mendapatkan hasil prediksi apakah ia berisiko terkena diabetes atau tidak. Dengan begitu, aplikasi ini dapat membantu dalam mencegah dan mengatasi penyakit diabetes dengan lebih efektif.
 
 ## Requirements
 
@@ -54,40 +45,12 @@ Prediksi Diabetes di deployment Streamlit dengan algoritma SVM adalah sebuah apl
    ```
    !pip install -r requirements.txt
    ```
-4. Bisa jalankan file `diabetes.ipynb` atau `main.py`
+4. Bisa jalankan file `diabetes-prediction.ipynb` atau `main.py`
 
-> _Insight_ dari dataset diabetes dapat dilihat di file [diabetes.ipynb](https://github.com/Fauzan-Kamil/predict-diabetes-streamlit/blob/master/diabetes.ipynb)
+> _Insight_ dari dataset diabetes dapat dilihat di file [diabetes-prediction.ipynb]
+> https://www.kaggle.com/code/zabihullah18/diabetes-prediction
 
 ```
-Bagi yang penasaran dengan insights dari dataset diabetes, yuk cek file diabetes.ipynb!
+Bagi yang penasaran dengan insights dari dataset diabetes, yuk cek file diabetes-diabetesprediction.ipynb!
 Di sana tersedia informasi menarik yang dapat meningkatkan pemahaman kita tentang dataset tersebut.
 ```
-
-## Struktur Folder
-
-```
-📦predict-diabetes-streamlit
- ┣ 📂.ipynb_checkpoints
- ┃ ┗ 📜diabetes-checkpoint.ipynb
- ┣ 📂Data
- ┃ ┣ 📜diabetes.csv
- ┃ ┗ 📜diabetes_fix.csv
- ┣ 📂img
- ┃ ┣ 📜classification_svm.png
- ┃ ┣ 📜cm-test.png
- ┃ ┣ 📜cm-train.png
- ┃ ┣ 📜cm-val.png
- ┃ ┣ 📜model_svm-test.png
- ┃ ┗ 📜model_svm.png
- ┣ 📜app.py
- ┣ 📜diabetes - Jupyter Notebook.pdf
- ┣ 📜diabetes.ipynb
- ┣ 📜main.py
- ┣ 📜model_svm.pkl
- ┣ 📜README.md
- ┗ 📜requirements.txt
-```
-
-## Create a
-
-Author : [Fauzan Kamil](https://github.com/Fauzan-Kamil)

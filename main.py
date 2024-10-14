@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 st.set_page_config(page_title="Diabetes Prediction", layout="wide")
+
 # Create menu
 selected = option_menu(
     menu_title=None,
@@ -14,17 +15,13 @@ selected = option_menu(
     orientation="horizontal",
 )
 
-#row0_spacer1, row0_1, row0_spacer2= st.columns((0.1, 3.2, 0.1))
-#row1_spacer1, row1_1, row1_spacer2, row1_2 = st.columns((0.1, 1.5, 0.1, 1.5))
-#row1_spacer1, row1_1, row1_spacer2 = st.columns((0.1, 3.2, 0.1))
-#row0_spacer3, row3_0, row0_spacer3= st.columns((0.1, 3.2, 0.1))
-
 row0_spacer1, row0_1, row0_spacer2 = st.columns((0.1, 3.2, 0.1))
 row1_spacer1, row1_1, row1_spacer2, row1_2 = st.columns((0.1, 1.5, 0.1, 1.5))
 row0_spacer3, row3_0, row0_spacer4 = st.columns((0.1, 3.2, 0.1))
 
 # Load dataset
 df = pd.read_csv('Data/diabetes.csv')
+
 # Kelompok usia
 age_grup = []
 for i in df['Age']:
@@ -41,6 +38,7 @@ for i in df['Age']:
     else:
         age_grup.append('Manula')
 df['AgeGrup'] = age_grup
+
 # Kelompok BMI
 BMI_grup = []
 for i in df['BMI']:
@@ -55,8 +53,10 @@ for i in df['BMI']:
     else:
         BMI_grup.append('Obesitas II')            
 df['BMIGrup'] = BMI_grup
+
 # Model
-model = pd.read_pickle('model_svm.pkl')
+model = pd.read_pickle('best_model.pkl')
+
 # Handle selected option
 if selected == "Home":
     row0_1.title("Diabetes Prediction App")
@@ -118,21 +118,29 @@ elif selected == "Prediction":
     with row0_1:
         st.subheader('Masukkan Data')
     with row1_1:
-        pregnancies = st.number_input('Jumlah Kehamilan', min_value=0, max_value=20, value=0)
-        glucose = st.number_input('Kadar Gula', min_value=0, max_value=200, value=0)
-        blood_pressure = st.number_input('Tekanan Darah', min_value=0, max_value=200, value=0)
-        skin_thickness = st.number_input('Ketebalan Kulit', min_value=0, max_value=100, value=0)
+        Pregnancies = st.number_input('Jumlah Kehamilan', min_value=0, max_value=20, value=0)
+        Glucose = st.number_input('Kadar Gula', min_value=0, max_value=200, value=0)
+        BloodPressure = st.number_input('Tekanan Darah', min_value=0, max_value=200, value=0)
+        SkinThickness = st.number_input('Ketebalan Kulit', min_value=0, max_value=100, value=0)
+
     with row1_2:
-        insulin = st.number_input('Insulin', min_value=0, max_value=1000, value=0)
-        bmi = st.number_input('Body Mass Index (BMI)')
-        diabetes_pedigree_function = st.number_input('Diabetes Pedigree Function (Resiko Genetik)' )
-        age = st.number_input('Umur', min_value=0, max_value=100, value=0)
+        Insulin = st.number_input('Insulin', min_value=0, max_value=1000, value=0)
+        Weight = st.number_input('Berat Badan (kg)', min_value=0.0, max_value=200.0, value=0.0)
+        Height = st.number_input('Tinggi Badan (m)', min_value=0.0, max_value=2.5, value=0.0)
+        DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function (Resiko Genetik)' )
+        Age = st.number_input('Umur', min_value=0, max_value=100, value=0)
+
     with row3_0:
         button = st.button('Predict')
         if button:
-            data = np.array([[pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age]])
-            pred = model.predict(data)
-            if pred == 1:
-                st.write('Pasien terkena diabetes')
+            if Height > 0:
+                BMI = Weight / (Height ** 2)  # Calculate BMI
+                data = np.array([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+                pred = model.predict(data)
+                
+                if pred == 1:
+                    st.write('Pasien terkena diabetes')
+                else:
+                    st.write('Pasien tidak terkena diabetes')
             else:
-                st.write('Pasien tidak terkena diabetes')
+                st.write('Tinggi badan tidak boleh nol')
