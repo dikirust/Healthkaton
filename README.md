@@ -46,11 +46,3 @@ Prediksi Diabetes di deployment Streamlit dengan algoritma Random Forest adalah 
    !pip install -r requirements.txt
    ```
 4. Bisa jalankan file `diabetes-prediction.ipynb` atau `main.py`
-
-> _Insight_ dari dataset diabetes dapat dilihat di file [diabetes-prediction.ipynb]
-> https://www.kaggle.com/code/zabihullah18/diabetes-prediction
-
-```
-Bagi yang penasaran dengan insights dari dataset diabetes, yuk cek file diabetes-diabetesprediction.ipynb!
-Di sana tersedia informasi menarik yang dapat meningkatkan pemahaman kita tentang dataset tersebut.
-```
